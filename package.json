@@ -1,6 +1,6 @@
 {
-  "name": "node-aws-s3-rest-apis",
-  "version": "0.0.1",
+  "name": "carthage",
+  "version": "1.0.0",
   "private": true,
   "main": "app.js",
   "scripts": {
