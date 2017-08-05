@@ -24,7 +24,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: true
 }));
 app.use(cookieParser());
 
@@ -62,18 +62,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-
-var upload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: 'aryak-s3-bucket',
-    metadata: function (req, file, cb) {
-      cb(null, {fieldName: file.fieldname});
-    },
-    key: function (req, file, cb) {
-      cb(null, Date.now().toString())
-    }
-  })
-})
 
 module.exports = app;
